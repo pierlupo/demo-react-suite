@@ -5,11 +5,13 @@ class EventComponentChild extends Component {
         super(props)
         
     }
-
+    // méthode click sur le lien de l'enfant
     clickLink = (e) => {
-        e.preventDefault()
+        e.preventDefault()  // annuler le comportement par défaut
         console.log("clique sur le lien")
+        //appel de ma méthode parent via les props
         this.props.clickChild()
+        //appel de ma méthode parent avec param, via les props, on lui en donne un
         this.props.clickChildParam("hello")
     }
 
@@ -18,7 +20,7 @@ class EventComponentChild extends Component {
         return(
             <div>
                 <h2>Composant Enfant : {contenu}</h2>
-                <a href="http://www.google.fr" onClick={this.clickLink}>Lien enfant</a>
+                <a href="http://www.google.fr" onClick={this.clickLink}>Lien Enfant</a>
             </div>
         )
     }

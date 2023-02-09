@@ -1,5 +1,5 @@
 import React, { Component } from 'react' // utlise uniquement pour le troisieme composant
-import './component.css';
+import './Component.css';
 
 
 export function FirstComponent() { // Premiere lettre Uppercase (convention PascalCase ou aussi appele UpperCamelCase ) et composant dans une fonction

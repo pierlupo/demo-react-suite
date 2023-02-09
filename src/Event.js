@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import EventComponentChild from './EventChild'
+import "./Component.css"
 
 class EventComponant extends Component {
     constructor(props){
@@ -25,20 +26,27 @@ class EventComponant extends Component {
         this.setState({...tmpState})
     }
 
+    //méthode à passer à mon enfant
     clickChild = () =>{
         console.log("je suis le parent, tu as cliqué sur le bouton enfant")
     }
-
+    //méthode à passer avec paramètre
     clickChildParam = (message) => {
         console.log(message);
+        const tmpState = {...this.state}
+        //modif de la copie de mon state
+        tmpState.message.contenu = message
+        //set de mon state
+        this.setState({...tmpState})
     }
 
     render(){
         return (
             <>
+            <button type="submit" className="btn"></button>
             <input type="text" name ="nameInput" onChange={this.changeInput} placeholder='Taper du texte ici'></input>
-            <h2>Composant parent : {this.state.message.contenu}</h2>
-            <EventComponentChild message={this.state.message} clickChild={this.clickChild}clickChildParam={this.clickChildParam}></EventComponentChild>
+            <h2>Composant Parent : {this.state.message.contenu}</h2>
+            <EventComponentChild message={this.state.message} clickChild={this.clickChild} clickChildParam={this.clickChildParam}></EventComponentChild>
             </>
         )
     }
